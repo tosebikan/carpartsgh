@@ -10,6 +10,7 @@
     <div class="grid-container">
       <header class="header">
         <div class="brand">
+          <button class="brand-button" onClick="openMenu()">&#9776;</button>
           <a href="index.html">CarpartsGh</a>
         </div>
         <div class="header-links ">
@@ -17,8 +18,24 @@
           <a href="signin.html">Signin</a>
           <a href="signup.html">Signup</a>
         </div>
-
       </header>
+
+      <aside class="sidebar">
+        <h3>Select Car Brand</h3>
+        <ul>
+          <li>
+          <a href="index.html">Kia</a>
+        </li>
+          <li>
+          <a href="index.html">Toyota</a>
+        </li>
+        </li>
+          <li>
+          <a href="index.html">Mercedes Benz</a>
+        </li>
+        </ul>
+
+      </aside>
       <main class="main">
         <div class="content">
           <ul class="products">
@@ -107,5 +124,10 @@
       </footer>
 
     </div>
+    <script>
+      function openMenu(){
+        document.querySelector(".sidebar").classList.add("open")
+      }
+    </script>
   </body>
 </html>
