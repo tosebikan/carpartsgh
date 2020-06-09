@@ -35,13 +35,14 @@
   text-decoration: none;
 }
 
+
 .header-links a{
   color: #fff;
-  text-decoration: none;
 }
 
 .header-links a:hover{
   color: #487eb0;
+  transform: translateX(1rem);
 }
 
 .main{
@@ -110,4 +111,27 @@ a:hover{
 
 .product-rating{
   margin-bottom: 1rem;
+}
+
+
+/* Side bar*/
+.brand-button{
+  font-size: 3rem;
+  padding: .5rem;
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
+
+.sidebar{
+  position: fixed;
+  width: 30rem;
+  transform: translateX(-30rem);
+  background-color: #718093;
+  height: 100%;
+}
+
+.sidebar.open{
+  transform: translateX(0);
 }
