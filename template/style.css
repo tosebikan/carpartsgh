@@ -128,10 +128,25 @@ a:hover{
   position: fixed;
   width: 30rem;
   transform: translateX(-30rem);
-  background-color: #718093;
+  background-color: #ecf0f1;
   height: 100%;
 }
 
 .sidebar.open{
   transform: translateX(0);
+}
+
+.sidebar-close-button{
+  border-radius: 50%;
+  border: 0.1rem #000 solid;
+  width: 3rem;
+  height: 3rem;
+  padding: 0.5rem;
+  font-size: 2rem;
+  padding-top: 0;
+  background-color: inherit;
+  cursor: pointer;
+  position: absolute;
+  right: 1rem;
+  top: 1.5rem;
 }
