@@ -42,7 +42,7 @@ body{
 
 .header-links a:hover{
  color: #487eb0;
- transform: translateX(1rem);
+ /*transform: translateX(10px);*/
 }
 
 .main{
@@ -127,6 +127,7 @@ a:hover{
 .sidebar{
  position: fixed;
  width: 30rem;
+ transition: all .5s;
  transform: translateX(-30rem);
  background-color: #ecf0f1;
  height: 100%;
