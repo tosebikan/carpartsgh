@@ -22,6 +22,7 @@
 
       <aside class="sidebar">
         <h3>Select Car Brand</h3>
+        <button class="sidebar-close-button" onClick="closeMenu()">x</button
         <ul>
           <li>
           <a href="index.html">Kia</a>
@@ -127,6 +128,9 @@
     <script>
       function openMenu(){
         document.querySelector(".sidebar").classList.add("open")
+      }
+      function closeMenu(){
+        document.querySelector(".sidebar").classList.remove("open")
       }
     </script>
   </body>
