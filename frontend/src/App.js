@@ -1,6 +1,7 @@
 import React from 'react';
 // import logo from './logo.svg';
 import './App.css';
+import data from './data';
 
 function App() {
   const openMenu = () =>{
@@ -44,83 +45,20 @@ function App() {
       <main className="main">
         <div className="content">
           <ul className="products">
+          {data.products.map((product) =>
             <li>
               <div className="product">
-                <img className="product-image"src='/images/tire.jpg' alt="product"/>
+                <img className="product-image"src={product.image} alt="product"/>
                 <div className="product-name">
-                  <a href="product.html">Tire</a>
+                  <a href="product.html">{product.name}</a>
                 </div>
-                <div className="product-brand">Kia</div>
-                <div className="product-price">$60</div>
-                <div className="product-rating">4.5 stars (10 reviews)</div>
+                <div className="product-brand">{product.brand}</div>
+                <div className="product-price">${product.price}</div>
+                <div className="product-rating">{product.rating} Stars {product.numReviews}</div>
               </div>
             </li>
-            <li>
-              <div className="product">
-                <img className="product-image"src='/images/tire.jpg' alt="product"/>
-                <div className="product-name">
-                  <a href="product.html">Tire</a>
-                </div>
-                <div className="product-brand">Kia</div>
-                <div className="product-price">$60</div>
-                <div className="product-rating">4.5 stars (10 reviews)</div>
-              </div>
-            </li>
-            <li>
-              <div className="product">
-                <img className="product-image"src='/images/tire.jpg' alt="product"/>
-                <div className="product-name">
-                  <a href="product.html">Tire</a>
-                </div>
-                <div className="product-brand">Kia</div>
-                <div className="product-price">$60</div>
-                <div className="product-rating">4.5 stars (10 reviews)</div>
-              </div>
-            </li>
-            <li>
-              <div className="product">
-                <img className="product-image"src='/images/tire.jpg' alt="product"/>
-                <div className="product-name">
-                  <a href="product.html">Tire</a>
-                </div>
-                <div className="product-brand">Kia</div>
-                <div className="product-price">$60</div>
-                <div className="product-rating">4.5 stars (10 reviews)</div>
-              </div>
-            </li>
-            <li>
-              <div className="product">
-                <img className="product-image"src='/images/tire.jpg' alt="product"/>
-                <div className="product-name">
-                  <a href="product.html">Tire</a>
-                </div>
-                <div className="product-brand">Kia</div>
-                <div className="product-price">$60</div>
-                <div className="product-rating">4.5 stars (10 reviews)</div>
-              </div>
-            </li>
-            <li>
-              <div className="product">
-                <img className="product-image"src='/images/tire.jpg' alt="product"/>
-                <div className="product-name">
-                  <a href="product.html">Tire</a>
-                </div>
-                <div className="product-brand">Kia</div>
-                <div className="product-price">$60</div>
-                <div className="product-rating">4.5 stars (10 reviews)</div>
-              </div>
-            </li>
-            <li>
-              <div className="product">
-                <img className="product-image"src='/images/tire.jpg' alt="product"/>
-                <div className="product-name">
-                  <a href="product.html">Tire</a>
-                </div>
-                <div className="product-brand">Kia</div>
-                <div className="product-price">$60</div>
-                <div className="product-rating">4.5 stars (10 reviews)</div>
-              </div>
-            </li>
+          )}
+
           </ul>
       </div>
       </main>
