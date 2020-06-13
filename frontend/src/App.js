@@ -53,7 +53,8 @@ function App() {
                 </div>
                 <div className="product-brand">{product.brand}</div>
                 <div className="product-price">${product.price}</div>
-                <div className="product-rating">{product.rating} Stars {product.numReviews}</div>
+                <div className="product-rating">{product.rating} Stars ({product.numReviews} Reviews)</div>
+                <div className="product-year">{product.year}</div>
               </div>
             </li>
           )}
