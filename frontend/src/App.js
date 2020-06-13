@@ -1,6 +1,8 @@
 import React from 'react';
+import {BrowserRouter, Route, Link} from 'react-router-dom';
 import './App.css';
-import data from './data';
+import HomeScreen from './screens/HomeScreen';
+import ProductScreen from './screens/ProductScreen';
 
 function App() {
   const openMenu = () =>{
@@ -12,11 +14,12 @@ function App() {
   }
 
   return (
+    <BrowserRouter>
     <div className="grid-container">
       <header className="header">
         <div className="brand">
           <button className="brand-button" onClick={openMenu}>&#9776;</button>
-          <a href="index.html">CarpartsGh</a>
+          <Link to="/">CarpartsGh</Link>
         </div>
         <div className="header-links ">
           <a href="cart.html">Cart</a>
@@ -43,29 +46,17 @@ function App() {
       </aside>
       <main className="main">
         <div className="content">
-          <ul className="products">
-          {data.products.map((product) =>
-            <li>
-              <div className="product">
-                <img className="product-image"src={product.image} alt="product"/>
-                <div className="product-name">
-                  <a href="product.html">{product.name}</a>
-                </div>
-                <div className="product-brand">{product.brand}</div>
-                <div className="product-price">${product.price}</div>
-                <div className="product-rating">{product.rating} Stars ({product.numReviews} Reviews)</div>
-                <div className="product-year">{product.year}</div>
-              </div>
-            </li>
-          )}
 
-          </ul>
+        <Route path="/products/:id" component={ProductScreen}/>
+        <Route path="/" exact={true} component={HomeScreen} />
+
       </div>
       </main>
       <footer className="footer">
         2020 oltostudios All Rights Reserved
       </footer>
     </div>
+    </BrowserRouter>
   );
 }
 
