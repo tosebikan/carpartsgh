@@ -13,7 +13,7 @@
     {
        name: "Head Light",
        category: "Lights",
-       image: "/images/tire.jpg",
+       image: "/images/head-light.jpg",
         price: 40,
         brand: "Kia",
         rating: 4.5,
@@ -23,7 +23,7 @@
     {
        name: "Tail Light ",
        category: "Lights",
-       image: "/images/tire.jpg",
+       image: "/images/tail-light.jpg",
         price: 45,
         brand: "Kia",
         rating: 4.5,
