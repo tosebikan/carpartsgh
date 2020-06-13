@@ -36,9 +36,9 @@ body{
 }
 
 
-
 .header-links a{
  color: #fff;
+ padding: 0.5rem;
 }
 
 .header-links a:hover{
