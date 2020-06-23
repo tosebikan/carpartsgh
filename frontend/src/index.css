@@ -7,7 +7,10 @@ body{
   font: 1.6rem Helvetica;
   height: 100vh;
   margin: 0;
+}
 
+#root{
+  height: 100%;
 }
 
 .grid-container{
@@ -93,6 +96,11 @@ a:hover{
 .product-image{
  max-width: 34rem;
  max-height: 34rem;
+}
+
+.product-image:hover{
+  border: 0.5px solid #487eb0;
+  border-radius: 10px;
 }
 
 .product-name{
