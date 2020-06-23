@@ -99,8 +99,9 @@ a:hover{
 }
 
 .product-image:hover{
-  border: 0.5px solid #487eb0;
+  //border: 0.5px solid #487eb0;
   border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
 }
 
 .product-name{
@@ -164,4 +165,70 @@ a:hover{
  position: absolute;
  right: 1rem;
  top: 1.5rem;
+}
+
+/* Product Details */
+
+.Details{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  padding: 1rem;
+}
+
+.Details-image{
+  flex: 2 1 60rem;
+}
+
+.Details-image img{
+  max-width: 60rem;
+  width: 100%;
+}
+
+.Details-info{
+  flex: 1 1 30rem;
+}
+.Details-action{
+  flex: 1 1 30rem;
+}
+
+.Details-info ul, .Details-action ul{
+  list-style-type: none;
+  padding: 0;
+}
+.Details-info li, .Details-action li{
+  margin-bottom: 1rem;
+}
+
+.back-to-result{
+  padding: 1rem;
+}
+
+.Details-action{
+  border: .1rem solid #808080;
+  border-radius: .5rem;
+  background-color: #f8f8f8;
+  padding: 1rem;
+}
+
+.Details-action ul li:last-child{
+  display: flex;
+  flex-direction: column;
+}
+
+.button{
+  padding: 1rem;
+  border: .1rem solid #808080;
+  border-radius: .5rem;
+  cursor: pointer;
+  background-color: #f0c040; 
+}
+
+.button:hover{
+  border: .1rem solid #404040;
+}
+
+.button.primary{
+
 }
