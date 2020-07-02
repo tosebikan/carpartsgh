@@ -96,10 +96,10 @@ a:hover{
 .product-image{
  max-width: 34rem;
  max-height: 34rem;
+ padding: 1rem;
 }
 
 .product-image:hover{
-  //border: 0.5px solid #487eb0;
   border-radius: 10px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
 }
@@ -222,7 +222,7 @@ a:hover{
   border: .1rem solid #808080;
   border-radius: .5rem;
   cursor: pointer;
-  background-color: #f0c040; 
+  background-color: #f0c040;
 }
 
 .button:hover{
