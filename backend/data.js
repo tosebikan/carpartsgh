@@ -9,7 +9,8 @@
        brand: "Kia",
        rating: 4.5,
        numReviews: 10,
-       year: 2018
+       year: 2018,
+       countInStock:6,
     },
     {
       _id: '101',
@@ -20,7 +21,8 @@
         brand: "Kia",
         rating: 4.5,
         numReviews: 10,
-        year: 2020
+        year: 2020,
+        countInStock:4,
     },
     {
        _id: '110',
@@ -31,7 +33,8 @@
         brand: "Kia",
         rating: 4.5,
         numReviews: 10,
-        year: 2019
+        year: 2019,
+        countInStock:0,
     },
   ]
 }
