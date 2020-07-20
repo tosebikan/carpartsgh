@@ -17,6 +17,10 @@ const CartScreen = (props) => {
     }
   },[]);
 
+  const removeFromCartHandler = (productId) => {
+
+  }
+
   return(
     <div className="cart">
       <div className="cart-list">
@@ -45,7 +49,7 @@ const CartScreen = (props) => {
                       <option value='2'>2</option>
                       <option value='3'>3</option>
                     </select>
-                    <button type="button" className="button" onClick={removeFromcartHandler}>
+                    <button type="button" className="button" onClick={() => removeFromCartHandler(item.product)}>
                       Delete
                     </button>
                   </div>
