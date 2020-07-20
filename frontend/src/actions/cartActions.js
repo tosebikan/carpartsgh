@@ -17,6 +17,11 @@ const addToCart = (productId, qty) => async (dispatch)=> {
   }
 };
 
+const removeFromCart = (productId) => (dispatch) => {
+
+};
+
 export{
-  addToCart
+  addToCart,
+  removeFromCart
 };
