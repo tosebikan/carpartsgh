@@ -1,4 +1,5 @@
 import React,{useEffect} from 'react';
+import {Link} from 'react-router-dom';
 import {useDispatch,useSelector} from 'react-redux';
 import {addToCart} from '../actions/cartActions';
 
@@ -27,21 +28,30 @@ const CartScreen = (props) => {
           { cartItems.length === 0 ? <div>Cart is empty</div>
             :
             cartItems.map((item) =>
-              <div>
-                <img src={item.image} alt="product"/>
+              <li>
+                <div className="cart-image">
+                  <img src={item.image} alt="product"/>
+                </div>
                 <div className="cart-name">
-                  <div>{item.name}</div>
                   <div>
-                    Qty:
+                    <Link to={"/product/"+ item.product}>
+                      {item.name}
+                    </Link>
+                  </div>
+                  <div>
+                          Qty:
                     <select>
                       <option value='1'>1</option>
                       <option value='2'>2</option>
                       <option value='3'>3</option>
                     </select>
+                    <button type="button" className="button" onClick={removeFromcartHandler}>
+                      Delete
+                    </button>
                   </div>
                 </div>
-                <div>{item.price}</div>
-              </div>
+                <div className='cart-price'>${item.price}</div>
+              </li>
             )
           }
 
@@ -52,7 +62,7 @@ const CartScreen = (props) => {
         <h3>
         Subtotal ({cartItems.reduce((a,c) => a + c.qty, 0)} items)
         :
-          {cartItems.reduce((a,c) => a + c.price * c.qty, 0)}
+          $ {cartItems.reduce((a,c) => a + c.price * c.qty, 0)}
         </h3>
         <button className="button primary" disabled={cartItems.length === 0 }>
           Proceed to checkout
