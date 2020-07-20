@@ -21,6 +21,10 @@ const CartScreen = (props) => {
     dispatch(removeFromCart(productId));
   };
 
+  const checkoutHandler = () => {
+
+  };
+
   return(
     <div className="cart">
       <div className="cart-list">
@@ -44,7 +48,7 @@ const CartScreen = (props) => {
                   </div>
                   <div>
                           Qty:
-                    <select>
+                    <select value={item.qty} onChange={(e) => dispatch(addToCart(item.product, e.target.value))}>
                       <option value='1'>1</option>
                       <option value='2'>2</option>
                       <option value='3'>3</option>
@@ -68,7 +72,7 @@ const CartScreen = (props) => {
         :
           $ {cartItems.reduce((a,c) => a + c.price * c.qty, 0)}
         </h3>
-        <button className="button primary" disabled={cartItems.length === 0 }>
+        <button onClick={checkoutHandler} className="button primary" disabled={cartItems.length === 0 }>
           Proceed to checkout
         </button>
 
