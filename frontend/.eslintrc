@@ -7,5 +7,6 @@
     semi: ['error', 'always'],
     'no-console': ['warn', { allow: ['info', 'error'] }],
     'arrow-parens': ['error', 'always'],
+    "react-hooks/exhaustive-deps": 0
   },
 }
