@@ -230,7 +230,6 @@ a:hover {
   border: 0.1rem solid #808080;
   border-radius: 0.5rem;
   cursor: pointer;
-  background-color: #f0c040;
 }
 
 .button:hover {
@@ -239,6 +238,13 @@ a:hover {
 
 .button.primary {
   background-color: #f0c040;
+}
+
+.button.secondary {
+  background-color: #f0f0f0;
+}
+.text-center {
+  text-align: center;
 }
 
 /* Cart */

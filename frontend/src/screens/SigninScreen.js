@@ -1,12 +1,16 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { signin } from "../src/actions/userActions";
 
 const SigninScreen = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const dispatch = useDispatch();
 
   const submitHandler = (e) => {
     e.preventDefault();
+    dispatch(signin(email, password));
   };
 
   return (
@@ -14,7 +18,7 @@ const SigninScreen = (props) => {
       <form onSubmit={submitHandler}>
         <ul className="form-container">
           <li>
-            <h3>Signin</h3>
+            <h2>Sign-In</h2>
           </li>
           <li>
             <label for="email">Email</label>
@@ -39,9 +43,9 @@ const SigninScreen = (props) => {
               Signin
             </button>
           </li>
-          <li>new to CarPartsGH?</li>
+          <li>new to carpartsgh?</li>
           <li>
-            <Link to="/register" className="button">
+            <Link to="/register" className="button secondary text-center">
               create your CarPartsGh account
             </Link>
           </li>
