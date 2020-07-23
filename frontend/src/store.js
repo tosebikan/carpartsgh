@@ -6,7 +6,7 @@ import {
   productDetailsReducer
 } from "./reducers/productReducers";
 import { cartReducer } from "./reducers/cartReducers";
-import { userSigninReducer } from "./reducers/userSigninReducer";
+import { userSigninReducer } from "./reducers/userReducers";
 
 const cartItems = Cookie.getJSON("cartItems") || [];
 const initialState = { cart: { cartItems } };
