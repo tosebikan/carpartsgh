@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { register } from "../actions/userActions";
 
 const RegisterScreen = (props) => {
@@ -10,11 +10,20 @@ const RegisterScreen = (props) => {
   const [rePassword, setRePassword] = useState("");
 
   const dispatch = useDispatch();
+  const userRegister = useSelector((state) => state.userRegister);
+  const { loading, userInfo, error } = userRegister;
 
   const submitHandler = (e) => {
     e.preventDefault();
     dispatch(register(name, email, password));
   };
+
+  useEffect(() => {
+    if (userInfo) {
+      props.history.push("/");
+    }
+  }, [userInfo]);
+
   return (
     <div className="form">
       <form submit={submitHandler}>
@@ -23,8 +32,8 @@ const RegisterScreen = (props) => {
             <h2>Create Account</h2>
           </li>
           <li>
-            {/*  {loading && <div>Loading...</div>}
-            {error && <div>{error}</div>} */}
+            {loading && <div>Loading...</div>}
+            {error && <div>{error}</div>}
           </li>
           <li>
             <label htmlFor="name">Name</label>
