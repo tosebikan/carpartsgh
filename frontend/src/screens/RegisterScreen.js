@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { register } from "../actions/userActions";
 
 const RegisterScreen = (props) => {
   const [name, setName] = useState("");
@@ -7,8 +9,11 @@ const RegisterScreen = (props) => {
   const [password, setPassword] = useState("");
   const [rePassword, setRePassword] = useState("");
 
+  const dispatch = useDispatch();
+
   const submitHandler = (e) => {
     e.preventDefault();
+    dispatch(register(name, email, password));
   };
   return (
     <div className="form">
