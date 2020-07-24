@@ -26,7 +26,7 @@ const RegisterScreen = (props) => {
 
   return (
     <div className="form">
-      <form submit={submitHandler}>
+      <form onSubmit={submitHandler}>
         <ul className="form-container">
           <li>
             <h2>Create Account</h2>
