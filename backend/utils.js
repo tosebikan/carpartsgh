@@ -36,4 +36,4 @@ const isAdmin = (req, res, next) => {
   return res.status(401).send({ msg: "Admin Token Invalid" });
 };
 
-export default getToken;
+export { getToken, isAuth, isAdmin };
