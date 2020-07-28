@@ -21,7 +21,7 @@ mongoose
 const app = express();
 app.use(bodyParser.json());
 app.use("/api/users", userRoute);
-app.use("/api/products, productRoute");
+app.use("/api/products", productRoute);
 
 // app.get("/api/products/:id", (req, res) => {
 //   const productId = req.params.id;
