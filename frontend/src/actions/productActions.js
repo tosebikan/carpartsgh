@@ -5,7 +5,10 @@ import {
   PRODUCT_LIST_FAILED,
   PRODUCT_DETAILS_REQUEST,
   PRODUCT_DETAILS_SUCCESS,
-  PRODUCT_DETAILS_FAILED
+  PRODUCT_DETAILS_FAILED,
+  PRODUCT_SAVE_REQUEST,
+  PRODUCT_SAVE_SUCCESS,
+  PRODUCT_SAVE_FAILED
 } from "../constants/productConstants";
 
 const listProducts = () => async (dispatch) => {
