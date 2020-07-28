@@ -23,12 +23,12 @@ const productListReducer = (state = { products: [] }, action) => {
   }
 };
 
-const productSaveReducer = (state = { products: [] }, action) => {
+const productSaveReducer = (state = { product: [] }, action) => {
   switch (action.payload) {
     case PRODUCT_SAVE_REQUEST:
       return { loading: true };
     case PRODUCT_SAVE_SUCCESS:
-      return { loading: false, products: action.payload };
+      return { loading: false, success: true, product: action.payload };
     case PRODUCT_SAVE_FAILED:
       return { loading: false, error: action.payload };
     default:
