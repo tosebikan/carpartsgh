@@ -31,8 +31,10 @@ const ProductScreen = (props) => {
     setModalVisible(true);
     setId(product._id);
     setName(product.name);
+    setPrice(product.price);
     setImage(product.image);
     setBrand(product.brand);
+    setDescription(product.description);
     setCategory(product.category);
     setCountInStock(product.countInStock);
   };
@@ -131,7 +133,7 @@ const ProductScreen = (props) => {
               </li>
 
               <li>
-                <label htmlFor="name">description</label>
+                <label htmlFor="description">description</label>
                 <textarea
                   name="description"
                   value={description}
@@ -173,7 +175,8 @@ const ProductScreen = (props) => {
           </thead>
           <tbody>
             {products.map((product) => (
-              <tr>
+              <tr key={product._id}>
+                <td>{product._id}</td>
                 <td>{product.name}</td>
                 <td>{product.price}</td>
                 <td>{product.category}</td>
