@@ -1,4 +1,5 @@
 import axios from "axios";
+import Axios from "axios";
 import {
   PRODUCT_LIST_REQUEST,
   PRODUCT_LIST_SUCCESS,
@@ -27,7 +28,7 @@ const saveProduct = (product) => async (dispatch, getState) => {
     const {
       userSignin: { userInfo }
     } = getState();
-    const { data } = await axios.post("/api/products", product, {
+    const { data } = await Axios.post("/api/products", product, {
       headers: {
         Authorization: "Bearer" + userInfo.token
       }
