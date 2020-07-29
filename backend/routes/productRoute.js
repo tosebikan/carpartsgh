@@ -8,6 +8,28 @@ router.get("/", async (req, res) => {
   res.send(products);
 });
 
+router.put("/:id", async (req, res) => {
+  const productId = req.params.id;
+  const product = await Product.findById(productId);
+  if (product) {
+    product.name = req.body.name;
+    product.price = req.body.price;
+    product.image = req.body.image;
+    product.brand = req.body.brand;
+    product.category = req.body.category;
+    product.countInStock = req.body.countInStock;
+    product.description = req.body.description;
+
+    const updatedProduct = await product.save();
+    if (updatedProduct) {
+      return res
+        .status(200)
+        .send({ message: "Product Updated", data: updatedProduct });
+    }
+  }
+  return res.status(500).send({ message: "Error in Updating product" });
+});
+
 router.post("/", async (req, res) => {
   const product = new Product({
     name: req.body.name,
@@ -20,7 +42,7 @@ router.post("/", async (req, res) => {
     rating: req.body.rating,
     numReviews: req.body.numReviews
   });
-  const newProduct = product.save();
+  const newProduct = await product.save();
   if (newProduct) {
     return res
       .status(201)
