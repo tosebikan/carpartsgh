@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { saveProduct, listProducts } from "../actions/productActions.js";
+import {
+  saveProduct,
+  listProducts,
+  deleteProduct
+} from "../actions/productActions.js";
 
 const ProductScreen = (props) => {
   const [modalVisible, setModalVisible] = useState(false);
@@ -15,12 +19,20 @@ const ProductScreen = (props) => {
 
   const productList = useSelector((state) => state.productList);
   const { loading, products, error } = productList;
+
   const productSave = useSelector((state) => state.productSave);
   const {
     loading: loadingSave,
     success: successSave,
     error: errorSave
   } = productSave;
+
+  const productDelete = useSelector((state) => state.productDelete);
+  const {
+    loading: loadingDelete,
+    success: successDelete,
+    error: errorDelete
+  } = productDelete;
 
   const dispatch = useDispatch();
 
@@ -30,7 +42,7 @@ const ProductScreen = (props) => {
     }
     dispatch(listProducts());
     return () => {};
-  }, [successSave]);
+  }, [successSave, successDelete]);
 
   const openModal = (product) => {
     setModalVisible(true);
@@ -59,11 +71,18 @@ const ProductScreen = (props) => {
       })
     );
   };
+
+  const deleteHandler = (product) => {
+    dispatch(deleteProduct(product._id));
+  };
+
   return (
     <div className="content content-margined">
       <div className="product-header">
         <h3>Products</h3>
-        <button onClick={() => openModal({})}>Create Products</button>
+        <button className="button primary" onClick={() => openModal({})}>
+          Create Products
+        </button>
       </div>
       {modalVisible && (
         <div className="form">
@@ -187,8 +206,15 @@ const ProductScreen = (props) => {
                 <td>{product.category}</td>
                 <td>{product.brand}</td>
                 <td>
-                  <button onClick={() => openModal(product)}>Edit</button>
-                  <button>Delete</button>
+                  <button className="button" onClick={() => openModal(product)}>
+                    Edit
+                  </button>{" "}
+                  <button
+                    className="button"
+                    onClick={() => deleteHandler(product)}
+                  >
+                    Delete
+                  </button>
                 </td>
               </tr>
             ))}
