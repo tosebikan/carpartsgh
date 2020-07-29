@@ -4,7 +4,8 @@ import Cookie from "js-cookie";
 import {
   productListReducer,
   productDetailsReducer,
-  productSaveReducer
+  productSaveReducer,
+  productDeleteReducer
 } from "./reducers/productReducers";
 import { cartReducer } from "./reducers/cartReducers";
 import {
@@ -25,6 +26,7 @@ const reducer = combineReducers({
   productList: productListReducer,
   productDetails: productDetailsReducer,
   productSave: productSaveReducer,
+  productDelete: productDeleteReducer,
   cart: cartReducer,
   userSignin: userSigninReducer,
   userRegister: userRegisterReducer
