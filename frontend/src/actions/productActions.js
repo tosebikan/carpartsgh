@@ -9,7 +9,10 @@ import {
   PRODUCT_DETAILS_FAILED,
   PRODUCT_SAVE_REQUEST,
   PRODUCT_SAVE_SUCCESS,
-  PRODUCT_SAVE_FAILED
+  PRODUCT_SAVE_FAILED,
+  PRODUCT_DELETE_REQUEST,
+  PRODUCT_DELETE_SUCCESS,
+  PRODUCT_DELETE_FAILED
 } from "../constants/productConstants";
 
 const listProducts = () => async (dispatch) => {
@@ -62,4 +65,21 @@ const detailsProduct = (productId) => async (dispatch) => {
   }
 };
 
-export { listProducts, detailsProduct, saveProduct };
+const deleteProduct = (productId) => async (dispatch, getState) => {
+  try {
+    const {
+      userSignin: { userInfo }
+    } = getState();
+    dispatch({ type: PRODUCT_DELETE_REQUEST, payload: productId });
+    const { data } = await Axios.delete("/api/products/" + productId, {
+      headers: {
+        Authorization: "Bearer" + userInfo.token
+      }
+    });
+    dispatch({ type: PRODUCT_DELETE_SUCCESS, payload: data, success: true });
+  } catch (error) {
+    dispatch({ type: PRODUCT_DELETE_FAILED, payload: error.message });
+  }
+};
+
+export { listProducts, detailsProduct, saveProduct, deleteProduct };
