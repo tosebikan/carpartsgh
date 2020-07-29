@@ -13,19 +13,24 @@ const ProductScreen = (props) => {
   const [countInStock, setCountInStock] = useState("");
   const [description, setDescription] = useState("");
 
-  const dispatch = useDispatch();
+  const productList = useSelector((state) => state.productList);
+  const { loading, products, error } = productList;
   const productSave = useSelector((state) => state.productSave);
   const {
     loading: loadingSave,
     success: successSave,
     error: errorSave
   } = productSave;
-  const productList = useSelector((state) => state.productList);
-  const { loading, products, error } = productList;
+
+  const dispatch = useDispatch();
 
   useEffect(() => {
+    if (successSave) {
+      setModalVisible(false);
+    }
     dispatch(listProducts());
-  }, []);
+    return () => {};
+  }, [successSave]);
 
   const openModal = (product) => {
     setModalVisible(true);
