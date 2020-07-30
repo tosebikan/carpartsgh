@@ -186,7 +186,7 @@ const ProductScreen = (props) => {
       )}
 
       <div className="product-list">
-        <table>
+        <table className="table">
           <thead>
             <tr>
               <th>ID</th>
