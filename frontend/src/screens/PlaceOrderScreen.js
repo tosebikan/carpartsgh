@@ -9,20 +9,15 @@ const PlaceOrderScreen = (props) => {
   const { cartItems, shipping, payment } = cart;
 
   if (!shipping) {
-    props.location.push("/shipping");
+    props.history.push("/shipping");
   }
   if (!payment) {
-    props.location.push("/payment");
+    props.history.push("/payment");
   }
 
   const dispatch = useDispatch();
-  const removeFromCartHandler = (productId) => {
-    dispatch(removeFromCart(productId));
-  };
 
-  useEffect(() => {
-    dispatch(placeOrder());
-  }, []);
+  useEffect(() => {}, []);
 
   const checkoutHandler = () => {
     props.history.push("/signin?redirect=shipping");
@@ -62,26 +57,7 @@ const PlaceOrderScreen = (props) => {
                       <div>
                         <Link to={"/product/" + item.product}>{item.name}</Link>
                       </div>
-                      <div>
-                        Qty:
-                        <select
-                          value={item.qty}
-                          onChange={(e) =>
-                            dispatch(addToCart(item.product, e.target.value))
-                          }
-                        >
-                          <option value="1">1</option>
-                          <option value="2">2</option>
-                          <option value="3">3</option>
-                        </select>
-                        <button
-                          type="button"
-                          className="button"
-                          onClick={() => removeFromCartHandler(item.product)}
-                        >
-                          Delete
-                        </button>
-                      </div>
+                      <div>Qty: {item.qty}</div>
                     </div>
                     <div className="cart-price">${item.price}</div>
                   </li>
