@@ -3,14 +3,14 @@ import { useDispatch } from "react-redux";
 import { savePayment } from "../actions/cartActions";
 import CheckoutSteps from "../components/CheckoutSteps";
 
-const PaymentScreen = (props) => {
+function PaymentScreen(props) {
   const [paymentMethod, setPaymentMethod] = useState("");
 
   const dispatch = useDispatch();
 
   const submitHandler = (e) => {
     e.preventDefault();
-    dispatch(savePayment(paymentMethod));
+    dispatch(savePayment({ paymentMethod }));
     props.history.push("placeorder");
   };
   return (
@@ -57,6 +57,6 @@ const PaymentScreen = (props) => {
       </div>
     </div>
   );
-};
+}
 
 export default PaymentScreen;
