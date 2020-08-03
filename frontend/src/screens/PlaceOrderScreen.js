@@ -1,17 +1,16 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { placeOrder, addToCart, removeFromCart } from "../actions/cartActions";
+import {} from "../actions/cartActions";
 import CheckoutSteps from "../components/CheckoutSteps";
 
-const PlaceOrderScreen = (props) => {
+function PlaceOrderScreen(props) {
   const cart = useSelector((state) => state.cart);
   const { cartItems, shipping, payment } = cart;
 
-  if (!shipping) {
+  if (!shipping.address) {
     props.history.push("/shipping");
-  }
-  if (!payment) {
+  } else if (!payment.paymentMethod) {
     props.history.push("/payment");
   }
 
@@ -49,7 +48,7 @@ const PlaceOrderScreen = (props) => {
                 <div>Cart is empty</div>
               ) : (
                 cartItems.map((item) => (
-                  <li>
+                  <li key={item.product}>
                     <div className="cart-image">
                       <img src={item.image} alt="product" />
                     </div>
@@ -82,6 +81,6 @@ const PlaceOrderScreen = (props) => {
       </div>
     </div>
   );
-};
+}
 
 export default PlaceOrderScreen;
