@@ -5,7 +5,10 @@ import {
   CART_SAVE_PAYMENT
 } from "../constants/cartConstants";
 
-const cartReducer = (state = { cartItems: [] }, action) => {
+const cartReducer = (
+  state = { cartItems: [], shipping: {}, payment: {} },
+  action
+) => {
   switch (action.type) {
     case CART_ADD_ITEM:
       const item = action.payload;
