@@ -1,4 +1,5 @@
 import React from "react";
+import SearchIcon from "@material-ui/icons/Search";
 import { BrowserRouter, Route, Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import "./App.css";
@@ -34,8 +35,18 @@ function App() {
             </button>
             <Link to="/">CarpartsGh</Link>
           </div>
-          <div className="header-links ">
-            <a href="cart.html">Cart</a>
+          <div className="header-search">
+            <input
+              name="search"
+              type="text"
+              placeholder="search"
+              className="header-searchInput"
+            />
+            <SearchIcon className="header-searchIcon" />
+          </div>
+          <div className="header-links">
+            <Link to="/cart">Cart</Link>
+            <Link to="/products">Products</Link>
             {userInfo ? (
               <Link to="/profile">{userInfo.name}</Link>
             ) : (
@@ -51,13 +62,23 @@ function App() {
           </button>
           <ul>
             <li>
-              <a href="index.html">Kia</a>
+              <Link to="/">Home</Link>
             </li>
             <li>
-              <a href="index.html">Toyota</a>
+              <Link to="/cart">Cart</Link>
             </li>
             <li>
-              <a href="index.html">Mercedes Benz</a>
+              <Link to="products">Products</Link>
+            </li>
+            <li>
+              <Link to="/">Categories</Link>
+            </li>
+            <li>
+              {userInfo ? (
+                <Link to="/profile">{userInfo.name}</Link>
+              ) : (
+                <Link to="/signin">Signin</Link>
+              )}
             </li>
           </ul>
         </aside>
